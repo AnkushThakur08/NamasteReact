@@ -36,6 +36,8 @@
 - Strict Mode enables extra development-only checks for the entire component.
   
 ### Double Rendering Issue:
+- React assumes that every component you write is a pure function. 
+  - Pure Function does not re-render when the state or value updated with the same value
 - To fix the double rendering issue, create a copy of the array so that when the component re-renders, it starts again with a fresh copy.
 - [Re-Rendering of useEffect](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development):
   - When Strict Mode is on, React runs an extra setup + cleanup cycle in development for every Effect.
