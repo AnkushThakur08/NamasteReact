@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- JS way to do a Hello world -->
+    <!-- <script>
+        const heading = document.createElement("h1");
+        heading.innerText = "Hello From JavaScript"
+        const rootElement = document.getElementById("root");
+        rootElement.appendChild(heading)
+    </script> -->
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</body>
+</html>
+
+<App>
+    <Profiler id="Sidebar" onRender={onRender}>
+      <Sidebar />
+    </Profiler>
+    <Profiler id="Content" onRender={onRender}>
+      <Content>
+        <Profiler id="Editor" onRender={onRender}>
+          <Editor />
+        </Profiler>
+        <Preview />
+      </Content>
+    </Profiler>
+   </App>
+   
