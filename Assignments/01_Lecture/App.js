@@ -1,7 +1,7 @@
 // SIMPLE ELEMENT
 
-// const heading = React.createElement("div", {}, "Hello From React");
-
+const heading = React.createElement("div", {}, "Hello From React");
+console.log(heading)
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // root.render(heading);
@@ -35,6 +35,8 @@ const nestedElement = React.createElement("div", { id: "parent" }, [
     React.createElement("h2", {}, "This is H2 tag"),
   ]),
 ]);
+
+console.log(nestedElement)
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
