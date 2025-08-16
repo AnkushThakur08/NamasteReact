@@ -46,6 +46,41 @@
   - To solve this problem, use a cleanup function.
 - [Read more about fixing bugs found by double rendering in development](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-double-rendering-in-development).
 
+## Why Place `<script>` in `<body>` and Not in `<head>`?
+
+1.  Blocking Nature of JavaScript 🚧
+    - When the browser encounters a `<script>` in the `<head>`, it **pauses HTML parsing** until the script is downloaded and executed, This delays rendering and increases page load time.
+
+2. 📄 DOM Availability
+    - If a script runs before the HTML elements are loaded, it won’t find those elements.
+    - ❌ This will throw an error because the script runs **before** the button exists in the DOM.
+
+3. ⚡ Modern Alternatives
+- **Defer**
+  - `<script src="app.js" defer></script>`
+  - Loads the script while parsing HTML.
+  - Executes only after the HTML is fully parsed.
+  - Equivalent to placing it at the bottom of <body>, but cleaner.
+- **Async**
+  - `<script src="analytics.js" async></script>`
+  - Loads and executes the script independently.
+  - Best for third-party scripts like analytics or ads.
+  - Equivalent to placing it at the bottom of <body>, but cleaner.
+
+Example (❌ Problematic):
+```html
+<head>
+  <script>
+    document.getElementById("btn").addEventListener("click", () => alert("Hi!"));
+  </script>
+</head>
+<body>
+  <button id="btn">Click</button>
+</body>
+```
+
+
+
 
 # Summary of Lecture 1
 
@@ -83,8 +118,9 @@
       "This is Hello from React inside the HTML"
     );
     ```
-  - `createElement` is an object.
+  - `createElement` returns an is an object.
   ![image](../assets/01.png)
+  - Us Objectke ander ke have props
 
 - **Rendering Nested Child Elements in the DOM**
   - Example of nested structure:
