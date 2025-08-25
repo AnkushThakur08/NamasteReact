@@ -1,19 +1,23 @@
 # Lecture 1
 
 ## What is CDN?
+
 - CDN stands for Content Delivery Network.
 - CDN links are where React or any other service is hosted.
 - We can fetch or pull React/any other service from that link.
 
 ## What is crossOrigin?
+
 - Used when we need to request resources from a different origin.
-- The `crossorigin` attribute is used to share resources from one domain to another.
+- The `crossorigin` attribute is used to share resources from one domain to another. 
 - It handles Cross-Origin Resource Sharing (CORS) requests.
 - Ensures that it is safe to allow sharing of resources from other domains.
 
 ## What is Profiler?
+
 - The Profiler measures the performance of a component or the entire app.
 - Allows you to measure the rendering performance of a React tree programmatically.
+
 
 ```jsx
 <App>
@@ -32,12 +36,14 @@
 ```
 
 ## What is Strict Mode?
+
 - Strict Mode enables extra development-only checks for the entire component.
-  
+
 ### Double Rendering Issue:
+
 - [Read more about fixing bugs found by double rendering in development](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-double-rendering-in-development).
 
-- React assumes that every component you write is a pure function. 
+- React assumes that every component you write is a pure function.
   - Pure Function does not re-render when the state or value updated with the same value
 - To fix the double rendering issue, create a copy of the array so that when the component re-renders, it starts again with a fresh copy.
 - [Re-Rendering of useEffect](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-re-running-effects-in-development):
@@ -49,13 +55,28 @@
 ## Why Place `<script>` in `<body>` and Not in `<head>`?
 
 1.  Blocking Nature of JavaScript 🚧
+
     - When the browser encounters a `<script>` in the `<head>`, it **pauses HTML parsing** until the script is downloaded and executed, This delays rendering and increases page load time.
 
-2. 📄 DOM Availability
+2.  📄 DOM Availability
     - If a script runs before the HTML elements are loaded, it won’t find those elements.
     - ❌ This will throw an error because the script runs **before** the button exists in the DOM.
 
+Example (❌ Problematic):
+
+```html
+<head>
+  <script>
+    document.getElementById("btn").addEventListener("click", () => alert("Hi!"))
+  </script>
+</head>
+<body>
+  <button id="btn">Click</button>
+</body>
+```
+
 3. ⚡ Modern Alternatives
+
 - **Defer**
   - `<script src="app.js" defer></script>`
   - Loads the script while parsing HTML.
@@ -67,42 +88,37 @@
   - Best for third-party scripts like analytics or ads.
   - Equivalent to placing it at the bottom of <body>, but cleaner.
 
-Example (❌ Problematic):
-```html
-<head>
-  <script>
-    document.getElementById("btn").addEventListener("click", () => alert("Hi!"));
-  </script>
-</head>
-<body>
-  <button id="btn">Click</button>
-</body>
-```
-
-
-
-
 # Summary of Lecture 1
 
 - **Created Hello World Application in HTML**
 - **Created Hello World Application in JavaScript**
 - **Created Hello World Application in React by Injecting CDN Links**
+
   - Injected React CDN Links:
     ```html
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
     ```
   - **1st link**: Injects core React features into the application.
   - **2nd link**: Required for working with the DOM in the browser.
 
 - **Creating Elements in React**
+
   - We can create elements in React using `React.createElement()`.
   - Need to create a root in React using `ReactDOM.createRoot()`.
   - `createRoot()` creates a root in the React application.
   - To render, we use `root.render()`.
 
 - **Important Points**
+
   - `React.createElement()` takes 3 inputs:
+
     1. **Type**: e.g., `div`, `h1`, `span`
     2. **Attributes**: e.g., `class`, `id`
     3. **Children**
@@ -116,13 +132,14 @@ Example (❌ Problematic):
         abc: "xyz",
       },
       "This is Hello from React inside the HTML"
-    );
+    )
     ```
   - `createElement` returns an is an object.
-  ![image](../assets/01.png)
+    ![image](../assets/01.png)
   - Us Objectke ander ke have props
 
 - **Rendering Nested Child Elements in the DOM**
+
   - Example of nested structure:
     ```javascript
     const nestedStructure = React.createElement("div", { id: "parent" }, [
@@ -134,7 +151,7 @@ Example (❌ Problematic):
         React.createElement("h1", { class: "h1-tag" }, "This is a h1 Tag"),
         React.createElement("h2", {}, "This is a h2 Tag"),
       ]),
-    ]);
+    ])
     ```
 
 - **React Replaces Everything Inside "root"**
