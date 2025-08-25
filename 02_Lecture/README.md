@@ -61,3 +61,19 @@
 - Tree Shaking - remove unused code 
 - Also serve your app in HTTPS
 - Browser list, we can add it in the package.json, to support all the browser
+- Read more about [Parcel](https://parceljs.org/)
+
+
+# Lecture 3
+- `React.createElement()` is an Object, lots of developer says it is an HTLM Tag/ HTML Element
+- When we render this Object or Element is Becomes HTLM Tag/ HTML Element
+- JSX Code is Transpiled before its reaches to the Browser- THIS IS DONE BY PARCEL, but PARCEL do not do it alone
+- **This is DONE BY BABEL**
+- **Babel** Transpiled the code
+- When we use `React.createElement`
+    - `React.createElement` ===> `JS Object` ====> HTML TAG
+- When we use `JSX`
+    - `JSX` ====> `React.createElement` ====> `JS Object` ====> HTML Tag
+- `BABEL` is convereting the JSX into React.createElement
+
+- **IMPORTANT** [See how Babel Converts the code](https://babeljs.io/)

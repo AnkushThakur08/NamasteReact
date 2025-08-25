@@ -136,7 +136,7 @@ Example (❌ Problematic):
     ```
   - `createElement` returns an is an object.
     ![image](../assets/01.png)
-  - Us Objectke ander ke have props
+  - Us Object ke ander ke have props
 
 - **Rendering Nested Child Elements in the DOM**
 
