@@ -42,3 +42,17 @@ const nestedStructure = React.createElement("div", { id: "parent" }, [
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(nestedStructure);
+
+// const revision = React.createElement("div", {},  [
+//   React.createElement("div", {id: "child"}, [
+//     React.createElement("h1", {}, "This is H1 Tag"),
+//     React.createElement("h2", {}, "This is H3 Tag")
+//   ]),
+//   React.createElement("div", {id: "child2"}, [
+//     React.createElement("h1", {}, "This is H1 Tag"),
+//     React.createElement("h2", {}, "This is H3 Tag")
+//   ])
+// ])
+
+// const render2 = ReactDOM.createRoot(document.querySelector("#root"))
+// render2.render(revision)
